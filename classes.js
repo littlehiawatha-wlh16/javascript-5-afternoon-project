@@ -31,6 +31,27 @@
 
 //Code Here
 
+class Employee  {
+  constructor(first_name,last_name,email,age){
+  this.first_name = first_name
+  this.last_name = last_name
+  this.email = email
+  this.age = age
+  }
+
+  makeWidget = function(){
+    return `${this.first_name} ${this.last_name} Widget`
+  }
+} 
+
+//let emp = new Employee(Employee.first_name, Employee.last_name, Employee.email, Employee.age );
+let emp = new Employee('Samuel', 'Smith', 'smitsam@hotmail.com', 73 );
+console.log(emp)
+
+emp.makeWidget()
+console.log(emp.makeWidget())
+
+
 
 ////////// PROBLEM 2 //////////
 
@@ -48,6 +69,10 @@
 */
 
 //Code Here
+
+class Manager extends Employee {
+  
+};
 
 
 ////////// PROBLEM 3 //////////
