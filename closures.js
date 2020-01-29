@@ -24,11 +24,17 @@ function outer() {
   
 // Code Here
 
+let inner = outer()
+
+
 
 
 //Once you do that, invoke inner.
 
 //Code Here
+
+inner ();
+console.log(inner())
 
 
 
@@ -52,7 +58,8 @@ function callFriend(name) {
 */
 
 //Code Here
-
+let callJake = callFriend ('Jake','435-555-9248');
+callJake('Jake','435-555-9248')
 
 
 ////////// PROBLEM 3 //////////
@@ -63,14 +70,33 @@ function callFriend(name) {
 
 //Code Here
 
+let makeCounter = () => {
+  let counter = 0;
+  return () => {
+    counter++;
+    return counter;
+  }
+}
+
+// // -----------> Personally Coded <-----------------
+// let makeCounter = function(){
+//   let count = 0;
+//   return function () {
+//     counter ++;
+//     return count;
+//   }
+
+  
+// }
+
 
 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -89,7 +115,16 @@ function counterFactory(value) {
   // Code here.
 
   return {
+    inc: function () {
 
+      value++;
+      return value;      
+    },
+
+    dec: function (){
+      value--;
+      return value;
+    }
   };
 }
 
@@ -98,6 +133,7 @@ counter = counterFactory(10);
 // counter.inc() // 12
 // counter.inc() // 13
 // counter.dec() // 12
+
 
 
 
@@ -113,9 +149,14 @@ function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
   // code message function here.
+  function message () {
+    welcomeText += ` ${firstname} ${lastname}.`;
+    return welcomeText;
+  }
+
 
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
@@ -144,6 +185,9 @@ var module = (function() {
   // outside our lexical scope
   return {
     // Code here.
+    publicMethod: function () {
+      return privateMethod();
+    }
   };
 })();
 
@@ -163,6 +207,15 @@ function secretNumber() {
 
   return {
     // Code here
+    addToSecret: function(num) {
+      secret += num;
+      return secret;
+    },
+    takeAwayFromSecret: function (num) {
+      secret -= num;
+      return secret;
+    }
+
   };
 }
 
@@ -186,11 +239,29 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
-function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+function timeOutCounter () {
+  for (var i = 0; i<= 5; i++) {
+    e(i);
+  }
+
+
+function e(num) {
+  
     setTimeout(function() {
-      console.log(i);
+      console.log(num);
     }, i * 1000);
   }
 }
 timeOutCounter();
+
+
+
+// // ----> original Code <-------- // //
+// function timeOutCounter() {
+//   for (var i = 0; i <= 5; i++) {
+//     setTimeout(function() {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
+// timeOutCounter();
